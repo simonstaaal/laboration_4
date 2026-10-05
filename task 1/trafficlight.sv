@@ -15,7 +15,7 @@ state_ty pres_state, next_state;
 logic [COUNTER_WIDTH - 1:0] counter, next_counter;
 
 always_ff @(posedge clk or negedge rst_n) begin
-    if(!rst_n) begin //rst_n aktiv låg när den är 0 är vi i reset state
+    if(rst_n == 0) begin //rst_n aktiv låg när den är 0 är vi i reset state
         pres_state <= Red;
         counter <= 0;
     end
@@ -67,8 +67,6 @@ always_comb begin
         end
     end
     endcase
-
-
     
 end
 
