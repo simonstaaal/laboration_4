@@ -1,21 +1,23 @@
 module trafficlight #(parameter RED_DELAY = 5 ,parameter  RED_ORANGE_DELAY = 2, parameter GREEN_DELAY =7, parameter ORANGE_DELAY= 2, parameter COUNTER_WIDTH= 3)(
-    input logic clk,
+    input logic clk,    
     input logic rst_n,
     output logic red,
     output logic orange,
     output logic green
 );
 
+
 //Define states
 typedef enum logic [1:0] { 
     Red, RedOrange, Orange, Green
 } state_ty;
 
+
 state_ty pres_state, next_state;
 logic [COUNTER_WIDTH - 1:0] counter, next_counter;
 
 always_ff @(posedge clk or negedge rst_n) begin
-    if(rst_n == 0) begin //rst_n aktiv låg när den är 0 är vi i reset state
+    if(rst_n == 0) begin    //rst_n aktiv låg när den är 0 är vi i reset state
         pres_state <= Red;
         counter <= 0;
     end
