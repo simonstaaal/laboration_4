@@ -28,7 +28,7 @@ always_ff @(posedge clk or negedge rst_n) begin
         input_pw <= next_input_pw;
         pw_change_count <= next_pw_change_count;
         if (update_pw) begin
-            saved_pw <= input_pw;
+            saved_pw <= next_input_pw;
         end
     end
 end
