@@ -14,7 +14,7 @@ logic divided_clk;
 
 //Clock divider 1 sek?
 clock_divider #(
-        .DIVISOR(100000000)
+        .DIVISOR(1000000)
         ) clock_divider_inst (
         .rst_n(rst_n),
         .clk_in(clk),
@@ -51,7 +51,7 @@ digital_lock dig_lock (
     .clk(clk)
     .rst_n(rst_n)
     .key(key)
-    .valid_key_btn(valid_key)
+    .valid_key(valid_key)
     .state(state)
 );
 

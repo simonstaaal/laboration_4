@@ -1,4 +1,4 @@
-module keypress(
+module key_press_detector(
     input logic clk,
     input logic rst_n,
     input logic key_in,
